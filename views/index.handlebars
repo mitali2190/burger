@@ -1,0 +1,58 @@
+<div class="container">
+
+  <div class="jumbotron text-center">
+    <h1 class="display-4">EAT THE BURGER</h1>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <h2 class="alert alert-secondary">Let's Try These Burgers!</h2>
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+
+      <h2 class="alert alert-secondary">Burgers Devoured!</h2>
+
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+
+
+  <h2>Add a Burger</h2>
+
+
+  <form class="create-form">
+    <div class="form-group">
+      <label for="ca">Burger Name: </label>
+      <input type="text" id="ca" name="burger_name">
+    </div>
+    <div class="form-group">
+      <label for="devoured">Devoured???</label><br>
+      <input type="radio" name="devoured" value="0" checked> Available!<br>
+      <input type="radio" name="devoured" value="1"> Devoured
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Burger</button>
+  </form>
+
+
+
+  <!-- Content here -->
+</div>
